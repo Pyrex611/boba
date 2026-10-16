@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#F6F0E8">
+<title>Bonti | Snacks, Delivered</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--c1:#FBF4EC;--c2:#F5E6D0;--c3:#DEB077;--c4:#CE9250;--c5:#BE7C3F;--c9:#4E2F19;--ink:#2C1A10;--bg:#F6F0E8;--mute:#6f5d4e;--hh:calc(56px + env(safe-area-inset-top,0px))}
+*{box-sizing:border-box;margin:0}
+html{-webkit-text-size-adjust:100%;overflow-x:clip;scroll-behavior:smooth}
+html.lock{overflow:hidden}
+body{font:400 14px/1.4 Inter,system-ui,-apple-system,sans-serif;background:#E7DED3;color:var(--ink);-webkit-tap-highlight-color:transparent;overflow-x:clip}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;touch-action:manipulation}
+:focus-visible{outline:2px solid var(--c5);outline-offset:2px}
+.i{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.app{max-width:430px;margin:auto;min-height:100svh;background:var(--bg);padding-bottom:calc(104px + env(safe-area-inset-bottom,0px));box-shadow:0 0 0 1px #0001,0 30px 60px -30px #4E2F1966}
+.top{position:sticky;top:0;z-index:40;height:var(--hh);padding:env(safe-area-inset-top,0px) 16px 0;display:flex;align-items:center;justify-content:space-between;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid #0000000d}
+.logo{font:900 22px/1 Inter;letter-spacing:-.03em}.logo i{color:var(--c5);font-style:normal}
+.acts{display:flex;gap:8px}
+.ib{position:relative;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:#fff;box-shadow:inset 0 0 0 1px #0000001a}
+.bd{position:absolute;top:0;right:0;min-width:20px;height:20px;border-radius:10px;background:#E5484D;color:#fff;font:700 11px/20px Inter;text-align:center;padding:0 5px}
+.bd.pop{animation:pop .3s}
+@keyframes pop{50%{transform:scale(1.35)}}
+.eyebrow{font:700 11px/1 Inter;letter-spacing:.28em;text-transform:uppercase;color:var(--mute);padding:16px 16px 0}
+.sec{font:800 17px/1 Inter;letter-spacing:-.01em;padding:22px 16px 0}
+.track{position:relative;display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:16px;padding:48px 16px 14px;scrollbar-width:none;overscroll-behavior-x:contain}
+.track::-webkit-scrollbar{display:none}
+.dots{display:flex;justify-content:center;gap:6px}
+.dots button{position:relative;height:6px;width:6px;border-radius:3px;background:#0003;transition:.25s}
+.dots button::after{content:"";position:absolute;inset:-12px -4px}
+.dots button[aria-current=true]{width:20px;background:var(--ink)}
+.pills{position:sticky;top:var(--hh);z-index:30;display:flex;gap:8px;overflow-x:auto;padding:12px 16px;margin-top:22px;scrollbar-width:none;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.pills::-webkit-scrollbar{display:none}
+.pill{flex:none;display:inline-flex;align-items:center;gap:6px;height:40px;padding:0 16px;border-radius:20px;font:700 12px Inter;letter-spacing:.08em;text-transform:uppercase;background:var(--c2);color:#6B4122;box-shadow:inset 0 0 0 1px #EBCDA6;transition:.2s}
+.pill .i{width:15px;height:15px}
+.pill[aria-pressed=true]{background:var(--c5);color:#fff;box-shadow:0 6px 14px -6px #A56630}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:0 12px;padding:0 16px}
+
+/* ===== CUTOUT CARD ===== */
+.card{position:relative;margin-top:46px;padding:0 12px 12px;border-radius:22px;color:var(--c1);
+ background:radial-gradient(90% 70% at 50% 30%,color-mix(in srgb,var(--c) 42%,#3a2417),#2C1A10 75%);
+ box-shadow:0 14px 24px -12px #4E2F19cc,0 4px 8px -4px #4E2F1966,inset 0 1px 0 #ffffff1a;transition:transform .25s}
+@media(hover:hover){.card:hover{transform:translateY(-3px)}}
+.card:active{transform:scale(.98)}
+.stage{position:relative;height:90px}
+.pad{position:absolute;left:50%;bottom:2px;width:96px;height:20px;margin-left:-48px;border-radius:50%;background:radial-gradient(closest-side,#FFD9A8b0,#FFD9A800);box-shadow:inset 0 0 0 1px #FFD9A833;animation:pad 4s ease-in-out infinite var(--d,0s)}
+@keyframes pad{50%{transform:scale(.86);opacity:.65}}
+.item{position:absolute;left:50%;top:-42px;width:128px;height:128px;margin-left:-64px;pointer-events:none;transform:translate(calc(var(--px,0)*8px),calc(var(--py,0)*5px)) rotate(calc(var(--px,0)*4deg));transition:transform .15s ease-out}
+.fl{width:100%;height:100%;animation:fl 4s ease-in-out infinite var(--d,0s)}
+@keyframes fl{50%{transform:translateY(-6px)}}
+.item svg,.item img,.big svg,.big img,.th svg,.th img{display:block;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 12px 8px #0000006e)}
+.meta{display:flex;align-items:center;justify-content:space-between;gap:8px;padding-top:6px}
+.meta h3{font:700 14px/1.2 Inter}
+.meta p{font:600 13px Inter;color:var(--c3);margin-top:2px}
+.open{text-align:left;font:inherit}
+.open::after{content:"";position:absolute;inset:0;border-radius:22px;z-index:1}
+.add{position:relative;z-index:2;flex:none;width:40px;height:40px;border-radius:50%;background:var(--c4);color:var(--c9);display:grid;place-items:center;box-shadow:0 6px 12px -4px #000a;transition:transform .15s}
+.add:active{transform:scale(.88)}
+.qb{position:absolute;top:10px;right:10px;z-index:2;min-width:24px;height:24px;border-radius:12px;background:var(--c4);color:var(--c9);font:800 12px/24px Inter;text-align:center;padding:0 7px}
+.hc{flex:0 0 80%;scroll-snap-align:center;margin:0;height:132px;display:flex;align-items:center;gap:6px;padding:0 0 0 16px}
+.hc>div:first-child{flex:1;min-width:0}
+.hc h3{font:800 16px/1.15 Inter;text-transform:uppercase;letter-spacing:-.01em}
+.hc .tg{font:400 12px/1.3 Inter;color:var(--c2);opacity:.8;margin:4px 0 8px}
+.hc b{font:800 16px Inter;color:var(--c3)}
+.hc .stage{flex:0 0 46%;height:100%}
+.hc .item{width:150px;height:150px;margin-left:-75px;top:-34px}
+.hc .pad{bottom:10px;width:110px;margin-left:-55px}
+
+/* ===== SHEETS ===== */
+.sheet{position:fixed;inset:0;z-index:60;display:flex;align-items:flex-end;justify-content:center;background:#1E110A99;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);opacity:0;visibility:hidden;transition:opacity .25s,visibility 0s .25s}
+.sheet.on{opacity:1;visibility:visible;transition-delay:0s}
+.panel{position:relative;width:min(100%,430px);max-height:88dvh;overflow-y:auto;background:#fff;border-radius:28px 28px 0 0;padding:20px 20px calc(20px + env(safe-area-inset-bottom,0px));transform:translateY(100%);transition:transform .35s cubic-bezier(.2,.8,.2,1);overscroll-behavior:contain}
+.sheet.on .panel{transform:none}
+#pm .panel{overflow:visible;padding-top:112px;color:var(--c1);background:radial-gradient(90% 50% at 50% 0,color-mix(in srgb,var(--c) 45%,#3a2417),#2C1A10 72%)}
+.big{position:absolute;left:50%;top:-96px;width:200px;height:200px;margin-left:-100px}
+.big .pad{bottom:6px;width:150px;margin-left:-75px}
+.x{position:absolute;top:12px;right:12px;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:#0000000d}
+#pm .x{background:#ffffff1f}
+.cat{font:700 11px/1 Inter;letter-spacing:.28em;text-transform:uppercase;color:var(--c3)}
+#pm h2{font:800 26px/1.1 Inter;letter-spacing:-.02em;margin-top:8px}
+#pm .ds{margin-top:8px;color:var(--c2);opacity:.85}
+#pm .pr{font:800 22px Inter;margin:14px 0 16px;color:var(--c3)}
+.cta{display:block;width:100%;height:52px;border-radius:26px;background:var(--c4);color:var(--c9);font:800 13px/52px Inter;letter-spacing:.14em;text-transform:uppercase;text-align:center;text-decoration:none;box-shadow:0 10px 20px -8px #000a}
+.step{display:flex;align-items:center;justify-content:space-between;height:52px;border-radius:26px;background:#ffffff1a;padding:0 4px}
+.step button{width:44px;height:44px;border-radius:50%;display:grid;place-items:center}
+.step b{font:800 18px Inter}
+#cs h2{font:800 18px Inter;padding:6px 0 10px}
+.row{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #0000000f}
+.th{flex:none;width:60px;height:60px;padding:6px;border-radius:16px;background:radial-gradient(90% 90% at 50% 30%,color-mix(in srgb,var(--c) 42%,#3a2417),#2C1A10)}
+.th svg,.th img{filter:drop-shadow(0 4px 3px #0007)}
+.row .n{flex:1;min-width:0}.row .n b{display:block;font-weight:700}.row .n span{font-size:13px;color:var(--mute)}
+.q{display:flex;align-items:center}.q button{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:#0000000a}.q b{min-width:28px;text-align:center}
+.tot{display:flex;justify-content:space-between;font:800 18px Inter;margin:16px 0}
+.empty{text-align:center;color:var(--mute);padding:40px 0}
+#cs .cta{background:var(--ink);color:var(--c1)}
+.bar{position:fixed;z-index:35;left:50%;bottom:calc(12px + env(safe-area-inset-bottom,0px));width:min(calc(100% - 24px),406px);translate:-50% 0;height:56px;border-radius:28px;background:var(--ink);color:var(--c1);display:flex;align-items:center;justify-content:space-between;padding:0 8px 0 20px;box-shadow:0 14px 28px -10px #000b;animation:up .3s cubic-bezier(.2,.8,.2,1)}
+.bar[hidden]{display:none}
+@keyframes up{from{translate:-50% 140%}}
+.bar span{font-weight:700}
+.bar i{background:var(--c4);color:var(--c9);border-radius:20px;padding:0 18px;font:800 12px/40px Inter;letter-spacing:.12em;text-transform:uppercase;font-style:normal}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div id="app" class="app">
+  <header class="top">
+    <span class="logo">Bonti<i>.</i></span>
+    <div class="acts">
+      <button class="ib" aria-label="Notifications"><svg class="i" viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></button>
+      <button class="ib" data-a="tray" aria-label="Open tray"><svg class="i" viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4ZM3 6h18M16 10a4 4 0 0 1-8 0"/></svg><span id="bd" class="bd" hidden>0</span></button>
+    </div>
+  </header>
+  <main>
+    <p class="eyebrow">Welcome, Snackie.</p>
+    <div id="track" class="track" aria-label="Featured"></div>
+    <div id="dots" class="dots"></div>
+    <h2 class="sec">Top picks</h2>
+    <div id="picks" class="grid"></div>
+    <nav id="pills" class="pills" aria-label="Categories"></nav>
+    <div id="grid" class="grid"></div>
+  </main>
+  <button id="bar" class="bar" data-a="tray" hidden></button>
+</div>
+
+<div id="pm" class="sheet" data-a="bg"><div class="panel" role="dialog" aria-modal="true" aria-label="Product"></div></div>
+<div id="cs" class="sheet" data-a="bg"><div class="panel" role="dialog" aria-modal="true" aria-label="Your tray"></div></div>
+
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)],fmt=n=>'₦'+n.toLocaleString();
+const ic=d=>`<svg class="i" viewBox="0 0 24 24"><path d="${d}"/></svg>`;
+const I={plus:ic('M5 12h14M12 5v14'),minus:ic('M5 12h14'),x:ic('M18 6 6 18M6 6l12 12')};
+const CATS=[['boba','Boba','M7 8h10l-1 13H8L7 8ZM6 8h12M14 4l-2 4'],['tea','Tea','M5 12h11v3a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5v-3ZM16 13h2a2 2 0 0 1 0 4h-2M8 8c0-1 1-1 1-2s-1-1-1-2M12 8c0-1 1-1 1-2s-1-1-1-2'],['shawarma','Shawarma','M4 10h16v4a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4v-4ZM5 10 7 4h10l2 6'],['burger','Burger','M4 10a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6M4 14h16M4 14v2a4 4 0 0 0 4 4h8a4 4 0 0 0 4-4v-2']];
+
+/* ---- Stand-in cutout art. In production: set p.img to a transparent WebP/AVIF (see notes) ---- */
+const sv=(vb,b)=>`<svg viewBox="0 0 ${vb}" aria-hidden="true">${b}</svg>`;
+const cup=pearls=>sv('100 120',`<path d="M56 2l7 1-8 36h-6z" fill="#E94B6B"/><path d="M22 40h56l-6 70q-1 8-9 8H37q-8 0-9-8z" fill="var(--c)"/><path d="M24 54h52l-1.4 14H25.4z" fill="#fff" opacity=".22"/><path d="M30 46h7l-3 62h-4z" fill="#fff" opacity=".28"/>${pearls?[[36,104],[47,106],[58,104],[67,106],[42,96],[54,97],[64,95]].map(([x,y])=>`<circle cx="${x}" cy="${y}" r="5" fill="#2b1710"/>`).join(''):'<rect x="34" y="60" width="15" height="15" rx="4" fill="#fff" opacity=".35" transform="rotate(-14 41 67)"/><rect x="54" y="78" width="14" height="14" rx="4" fill="#fff" opacity=".3" transform="rotate(12 61 85)"/>'}<ellipse cx="50" cy="40" rx="31" ry="7" fill="#fff" opacity=".92"/>`);
+const wrap=sv('100 120',`<g transform="rotate(-16 50 62)"><path d="M33 62h34l-5 50q-1 6-7 6H45q-6 0-7-6z" fill="#CFCFD6"/><path d="M36 74h28M37 88h26M39 102h22" stroke="#9a9aa5" stroke-width="1.5" opacity=".7"/><path d="M30 66q-3-26 20-36 23 10 20 36z" fill="#EBCB92"/><path d="M33 40q8-16 17-14 9-2 17 14-17 8-34 0z" fill="var(--c)"/><circle cx="40" cy="32" r="7" fill="#6BAA4B"/><circle cx="60" cy="30" r="5.5" fill="#D94A3A"/><path d="M42 54q8 6 16 0" stroke="#fff" stroke-width="3" fill="none" opacity=".5" stroke-linecap="round"/></g>`);
+const burger=sv('120 100',`<path d="M10 46Q10 8 60 8t50 38z" fill="#E0963F"/><g fill="#FFF1CF"><ellipse cx="38" cy="24" rx="4" ry="2" transform="rotate(-20 38 24)"/><ellipse cx="62" cy="17" rx="4" ry="2"/><ellipse cx="84" cy="26" rx="4" ry="2" transform="rotate(20 84 26)"/><ellipse cx="52" cy="34" rx="4" ry="2" transform="rotate(10 52 34)"/><ellipse cx="74" cy="38" rx="4" ry="2" transform="rotate(-10 74 38)"/></g><path d="M6 48q7 9 14 0t14 0 14 0 14 0 14 0 14 0 14 0 12 2v6H6z" fill="#7DB347"/><rect x="8" y="56" width="104" height="15" rx="7.5" fill="var(--c)"/><path d="M10 58h100l-8 4-8 12-10-12H40L30 74 22 62z" fill="#FFC83D"/><path d="M12 76h96q0 16-14 16H26q-14 0-14-16z" fill="#D88A38"/>`);
+const ART={boba:cup(1),tea:cup(0),shawarma:wrap,burger};
+const art=p=>p.img?`<img src="${p.img}" alt="" width="512" height="512" decoding="async">`:ART[p.k];
+
+const P=[
+[101,'Strawberry Delight','Fresh strawberry boba','boba',4500,'#F4A3B5','Fresh strawberry puree, creamy milk and chewy tapioca pearls.'],
+[102,'Tapioca Plain','Classic brown-sugar pearls','boba',4500,'#C8A27A','The original milk tea with brown-sugar tapioca pearls. Simple, sweet, satisfying.'],
+[105,'Brown Sugar Boba','Tiger-stripe classic','boba',5000,'#9A6234','Caramelized brown sugar streaked down the glass, fresh milk, chewy pearls.'],
+[103,'Taro Milk Tea','Creamy purple taro','tea',5000,'#B79AD6','Smooth taro blended with milk. Earthy, creamy, unmistakably purple.'],
+[104,'Matcha Latte','Earthy green matcha','tea',5500,'#8FB36B','Ceremonial-grade matcha whisked into creamy milk. Calm in a cup.'],
+[106,'Thai Milk Tea','Spiced orange cream','tea',5000,'#F08A3C','Bold Thai tea with condensed milk and a warm spice finish.'],
+[107,'Honeydew Milk Tea','Melon-forward and light','tea',5000,'#B5DB8F','Ripe honeydew blended with milk. Fresh, light, perfect for warm days.'],
+[108,'Mango Green Tea','Tropical and bright','tea',6000,'#FFC23D','Fresh mango puree layered over chilled green tea.'],
+[201,'Chicken Shawarma','Grilled chicken wrap','shawarma',5000,'#E8B85A','Spit-grilled chicken in warm pita with garlic sauce, pickles and a hint of chili.'],
+[202,'Beef Shawarma','Slow-roasted beef wrap','shawarma',5500,'#A8552F','Thin-shaved slow-roasted beef with tahini, tomatoes and crisp onions.'],
+[203,'Mixed Shawarma','Chicken + beef combo','shawarma',6000,'#C98A3F','Chicken and beef stacked together with house sauce and fresh veggies.'],
+[204,'Lamb Shawarma','Tender spiced lamb','shawarma',7500,'#8E4A2B','Slow-marinated lamb with pickled onions and a tahini drizzle.'],
+[205,'Spicy Chicken Shawarma','Chicken with chili kick','shawarma',5500,'#D9482B','Classic chicken shawarma with fiery chili sauce and jalapeño.'],
+[206,'Falafel Wrap','Crispy chickpea delight','shawarma',5000,'#7FA650','Golden falafel, hummus and fresh salad in soft flatbread. Vegan-friendly.'],
+[301,'Classic Beef Burger','Juicy flame-grilled beef','burger',5000,'#5A301A','Beef patty grilled to order with lettuce, tomato and signature Bonti sauce.'],
+[302,'Chicken Burger','Crispy fried chicken','burger',4500,'#D9922E','Crispy fried chicken fillet, lettuce and creamy mayo.'],
+[303,'Cheese Burger','Double cheese melt','burger',5500,'#5A301A','Melting cheddar over a flame-grilled patty with all the trimmings.'],
+[304,'Double Beef Burger','Two patties, double love','burger',6500,'#6B3A1E','Two beef patties, double cheese and signature sauce.'],
+[305,'Veggie Burger','Plant-based perfection','burger',4000,'#6E8B3D','Hearty plant-based patty with avocado, tomato and lettuce in brioche.']
+].map(([i,n,t,k,p,c,d])=>({i,n,t,k,p,c,d}));
+const HERO=[101,102,201,301],PICKS=[301,201],WA='2348012345678';
+let cart=[],cat='boba',ci=0,timer,cur=null,last;
+const get=id=>P.find(p=>p.i===id),inCart=id=>cart.find(x=>x.i===id),count=()=>cart.reduce((t,x)=>t+x.q,0),total=()=>cart.reduce((t,x)=>t+x.q*x.p,0);
+const stage=(p,i=0)=>`<div class="stage"><i class="pad"></i><div class="item"><div class="fl">${art(p)}</div></div></div>`;
+const card=(p,i)=>`<article class="card" style="--c:${p.c};--d:${-(i%4)*.8}s">${stage(p)}<span class="qb" data-q="${p.i}" hidden></span><div class="meta"><div><h3><button class="open" data-a="open" data-id="${p.i}">${p.n}</button></h3><p>${fmt(p.p)}</p></div><button class="add" data-a="add" data-id="${p.i}" aria-label="Add ${p.n} to tray">${I.plus}</button></div></article>`;
+const slide=(p,i)=>`<article class="card hc" style="--c:${p.c};--d:${-i*.8}s"><div><h3><button class="open" data-a="open" data-id="${p.i}">${p.n}</button></h3><p class="tg">${p.t}</p><b>${fmt(p.p)}</b></div>${stage(p)}</article>`;
+
+function renderHero(){
+  $('#track').innerHTML=HERO.map((id,i)=>slide(get(id),i)).join('');
+  $('#dots').innerHTML=HERO.map((_,i)=>`<button data-a="dot" data-n="${i}" aria-label="Slide ${i+1}"></button>`).join('');
+  dots();
+}
+const dots=()=>$$('#dots button').forEach((b,i)=>b.setAttribute('aria-current',i===ci));
+function go(i){const s=$$('.hc')[i],t=$('#track');if(!s)return;t.scrollTo({left:s.offsetLeft-(t.clientWidth-s.offsetWidth)/2,behavior:'smooth'});ci=i;dots()}
+function auto(){clearInterval(timer);if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;timer=setInterval(()=>go((ci+1)%HERO.length),8000)}
+function onScroll(){const t=$('#track'),c=t.scrollLeft+t.clientWidth/2;let b=0,m=1e9;$$('.hc').forEach((s,i)=>{const d=Math.abs(s.offsetLeft+s.offsetWidth/2-c);if(d<m){m=d;b=i}});if(b!==ci){ci=b;dots()}}
+const renderPicks=()=>$('#picks').innerHTML=PICKS.map((id,i)=>card(get(id),i)).join('');
+const renderPills=()=>$('#pills').innerHTML=CATS.map(([k,l,d])=>`<button class="pill" data-a="cat" data-k="${k}" aria-pressed="${k===cat}">${ic(d)}${l}</button>`).join('');
+const renderGrid=()=>{$('#grid').innerHTML=P.filter(p=>p.k===cat).map(card).join('');renderQty()};
+const renderQty=()=>$$('[data-q]').forEach(el=>{const q=inCart(+el.dataset.q)?.q||0;el.hidden=!q;el.textContent=q});
+
+function change(id,d){const x=inCart(id);if(!x&&d>0){const p=get(id);cart.push({i:p.i,n:p.n,p:p.p,q:d})}else if(x){x.q+=d;if(x.q<=0)cart=cart.filter(y=>y!==x)}sync(d>0)}
+function sync(pop){
+  renderQty();
+  const n=count(),bd=$('#bd'),bar=$('#bar');
+  bd.hidden=bar.hidden=!n;bd.textContent=n;
+  if(pop){bd.classList.remove('pop');void bd.offsetWidth;bd.classList.add('pop')}
+  bar.innerHTML=`<span>${n} item${n>1?'s':''} · ${fmt(total())}</span><i>View tray</i>`;
+  renderCart();refreshModal();
+}
+function waLink(){let m='Hello Bonti, I would like to order:\n\n';cart.forEach(x=>m+=`▪ ${x.q}x ${x.n} - ${fmt(x.p*x.q)}\n`);m+=`\n*Total: ${fmt(total())}*`;return `https://wa.me/${WA}?text=${encodeURIComponent(m)}`}
+function renderCart(){
+  $('#cs .panel').innerHTML=`<button class="x" data-a="close" aria-label="Close">${I.x}</button><h2>Your Tray</h2>`+(cart.length?cart.map(x=>{const p=get(x.i);return `<div class="row"><div class="th" style="--c:${p.c}">${art(p)}</div><div class="n"><b>${x.n}</b><span>${fmt(x.p*x.q)}</span></div><div class="q"><button data-a="dec" data-id="${x.i}" aria-label="Decrease ${x.n}">${I.minus}</button><b>${x.q}</b><button data-a="inc" data-id="${x.i}" aria-label="Increase ${x.n}">${I.plus}</button></div></div>`}).join('')+`<div class="tot"><span>Total</span><span>${fmt(total())}</span></div><a class="cta" href="${waLink()}" target="_blank" rel="noopener noreferrer">Checkout on WhatsApp</a>`:`<p class="empty">Your tray is empty.</p>`);
+}
+function showProduct(id){
+  const p=get(id);cur=id;
+  $('#pm').style.setProperty('--c',p.c);
+  $('#pm .panel').innerHTML=`<button class="x" data-a="close" aria-label="Close">${I.x}</button><div class="big"><i class="pad"></i><div class="fl">${art(p)}</div></div><p class="cat">${p.k}</p><h2>${p.n}</h2><p class="ds">${p.d}</p><p class="pr">${fmt(p.p)}</p><div id="ma"></div>`;
+  refreshModal();openSheet('#pm');
+}
+function refreshModal(){
+  const a=$('#ma');if(!a||cur===null)return;const x=inCart(cur);
+  a.innerHTML=x?`<div class="step"><button data-a="dec" data-id="${cur}" aria-label="Decrease">${I.minus}</button><b>${x.q}</b><button data-a="inc" data-id="${cur}" aria-label="Increase">${I.plus}</button></div>`:`<button class="cta" data-a="add" data-id="${cur}">Add to Tray</button>`;
+}
+function openSheet(s){last=document.activeElement;$(s).classList.add('on');$('#app').inert=true;document.documentElement.classList.add('lock');$(s+' .x').focus()}
+function closeSheets(){$$('.sheet.on').forEach(s=>s.classList.remove('on'));$('#app').inert=false;document.documentElement.classList.remove('lock');cur=null;last&&last.focus()}
+
+document.addEventListener('click',e=>{
+  const t=e.target.closest('[data-a]');if(!t)return;const a=t.dataset.a,id=+t.dataset.id;
+  if(a==='add'||a==='inc')change(id,1);
+  else if(a==='dec')change(id,-1);
+  else if(a==='open')showProduct(id);
+  else if(a==='tray'){renderCart();openSheet('#cs')}
+  else if(a==='close'||(a==='bg'&&e.target===t))closeSheets();
+  else if(a==='cat'){cat=t.dataset.k;renderPills();renderGrid()}
+  else if(a==='dot'){go(+t.dataset.n);auto()}
+});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&$('.sheet.on'))closeSheets()});
+
+/* pointer parallax on cutouts (hover devices only) */
+if(matchMedia('(hover:hover)').matches){let on;document.addEventListener('pointermove',e=>{
+  const c=e.target.closest&&e.target.closest('.card');
+  if(on&&on!==c){on.style.removeProperty('--px');on.style.removeProperty('--py')}
+  on=c;if(c){const r=c.getBoundingClientRect();c.style.setProperty('--px',((e.clientX-r.left)/r.width*2-1).toFixed(2));c.style.setProperty('--py',((e.clientY-r.top)/r.height*2-1).toFixed(2))}
+})}
+
+renderHero();renderPicks();renderPills();renderGrid();sync();auto();
+$('#track').addEventListener('scroll',onScroll,{passive:true});
+$('#track').addEventListener('pointerdown',()=>clearInterval(timer));
+$('#track').addEventListener('pointerup',auto);
+</script>
+</body>
+</html>
