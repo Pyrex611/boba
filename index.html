@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bonti | Snacks, Delivered</title>
-  <meta name="description" content="Bonti — handcrafted boba, shawarma, and burgers, delivered." />
+  <meta name="description" content="Bonti — handcrafted boba, teas, shawarma, and burgers, delivered." />
 
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -65,7 +65,6 @@
     .pearl-card { transition: transform .25s ease, box-shadow .25s ease; }
     .pearl-card-hover:hover { transform: translateY(-2px); }
 
-    /* Phone-frame shadow for the centered container */
     .frame-shadow {
       box-shadow:
         0 0 0 1px rgba(120, 80, 50, 0.06),
@@ -75,17 +74,11 @@
   </style>
 </head>
 
-<!-- Darker body bg so the centered frame reads clearly -->
 <body class="bg-stone-200 min-h-screen text-stone-900">
 
-  <!-- ============================================================
-       CENTERED PHONE-FRAME CONTAINER
-  ============================================================ -->
   <div class="mx-auto max-w-md bg-stone-50 min-h-screen border-x border-stone-300 frame-shadow">
 
-    <!-- ============================================================
-         NAVBAR — sticky inside the frame
-    ============================================================ -->
+    <!-- NAVBAR -->
     <header class="sticky top-0 z-40 bg-white/85 backdrop-blur border-b border-stone-200">
       <div class="w-full flex justify-between items-center px-4 py-1">
         <span class="font-bold text-lg tracking-tight">Bonti</span>
@@ -119,11 +112,8 @@
     </header>
 
 
-    <!-- ============================================================
-         HERO — caramel card carousel
-    ============================================================ -->
+    <!-- HERO -->
     <section class="pt-3">
-
       <div class="px-4 pb-1">
         <p class="text-[10px] uppercase tracking-[0.3em] text-stone-500 font-bold">Welcome, Snackie.</p>
       </div>
@@ -139,9 +129,7 @@
     </section>
 
 
-    <!-- ============================================================
-         HALF-HERO
-    ============================================================ -->
+    <!-- HALF-HERO -->
     <section class="px-4 mt-3">
       <div
         id="dualGrid"
@@ -152,20 +140,16 @@
     </section>
 
 
-    <!-- ============================================================
-         CATEGORY PILLS + FILTERED GRID
-    ============================================================ -->
+    <!-- PILLS + BODY GRID -->
     <section class="px-4 mt-4 pb-16">
       <div id="categoryPills" class="flex gap-2 mb-2 overflow-x-auto scrollbar-hide"></div>
       <div id="filteredGrid" class="grid grid-cols-2 gap-x-3 gap-y-4"></div>
     </section>
 
-  </div><!-- /phone-frame -->
+  </div>
 
 
-  <!-- ============================================================
-       PRODUCT MODAL (centered on viewport)
-  ============================================================ -->
+  <!-- PRODUCT MODAL -->
   <div
     id="productModal"
     class="is-hidden fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4"
@@ -196,14 +180,10 @@
   </div>
 
 
-  <!-- ============================================================
-       CART DRAWER — constrained to the phone-frame width
-  ============================================================ -->
+  <!-- CART DRAWER -->
   <div id="cartDrawer" class="is-hidden fixed inset-0 z-50">
-    <!-- Full-viewport backdrop -->
     <div id="cartBackdrop" class="absolute inset-0 bg-black/40"></div>
 
-    <!-- Centered track holding the drawer -->
     <div class="relative mx-auto max-w-md h-full flex justify-end">
       <div class="drawer-panel w-[85%] bg-white h-full shadow-2xl flex flex-col">
         <div class="flex items-center justify-between p-4 border-b border-stone-200">
@@ -222,53 +202,65 @@
   </div>
 
 
-  <!-- ============================================================
-       APP SCRIPT
-  ============================================================ -->
+  <!-- APP SCRIPT -->
   <script>
     const PILL_ICON = {
       boba: `<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 8h10l-1 13H8L7 8Z"/><path d="M6 8h12"/><path d="M14 4l-2 4"/></svg>`,
+      tea: `<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h11v3a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5v-3Z"/><path d="M16 13h2a2 2 0 0 1 0 4h-2"/><path d="M8 8c0-1 1-1 1-2s-1-1-1-2"/><path d="M12 8c0-1 1-1 1-2s-1-1-1-2"/></svg>`,
       shawarma: `<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10h16v4a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4v-4Z"/><path d="M5 10 7 4h10l2 6"/></svg>`,
       burger: `<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6"/><path d="M4 14h16"/><path d="M4 14v2a4 4 0 0 0 4 4h8a4 4 0 0 0 4-4v-2"/></svg>`,
     };
 
-    /* ---------------- DATA (15 items) ---------------- */
     const PRODUCTS = [
-      /* --- BOBA (4) --- */
-      { id: 101, name: "Strawberry Delight", tagline: "Fresh strawberry boba", category: "boba", price: 2500,
+      /* BOBA (3) */
+      { id: 101, name: "Strawberry Delight", tagline: "Fresh strawberry boba", category: "boba", price: 4500,
         description: "Fresh strawberry puree blended with creamy milk and chewy tapioca pearls. A fruity, refreshing twist on classic boba.",
-        image: "https://images.unsplash.com/photo-1626200419199-391ae4be7a41?auto=format&fit=crop&q=80&w=800" },
-      { id: 102, name: "Tapioca Plain", tagline: "Classic brown-sugar pearls", category: "boba", price: 2000,
+        image: "https://images.unsplash.com/photo-1571934811356-5cc061b6821f?auto=format&fit=crop&q=80&w=800" },
+      { id: 102, name: "Tapioca Plain", tagline: "Classic brown-sugar pearls", category: "boba", price: 4500,
         description: "The original milk tea with perfectly cooked brown-sugar tapioca pearls. Simple, sweet, and satisfying.",
         image: "https://images.unsplash.com/photo-1558857563-b371033873b8?auto=format&fit=crop&q=80&w=800" },
-      { id: 103, name: "Taro Milk Tea", tagline: "Creamy purple taro", category: "boba", price: 2800,
-        description: "Smooth taro root blended with milk and chewy pearls. Earthy, sweet, and unmistakably purple.",
+      { id: 105, name: "Brown Sugar Boba", tagline: "Tiger-stripe classic", category: "boba", price: 5000,
+        description: "Caramelized brown sugar syrup streaked down the glass, with fresh milk and chewy pearls. The viral favourite.",
+        image: "https://images.unsplash.com/photo-1558857563-b371033873b8?auto=format&fit=crop&q=80&w=800" },
+
+      /* TEA (5) */
+      { id: 103, name: "Taro Milk Tea", tagline: "Creamy purple taro", category: "tea", price: 5000,
+        description: "Smooth taro root blended with milk and a hint of sweetness. Earthy, creamy, and unmistakably purple.",
         image: "https://images.unsplash.com/photo-1571934811356-5cc061b6821f?auto=format&fit=crop&q=80&w=800" },
-      { id: 104, name: "Matcha Latte", tagline: "Earthy green matcha", category: "boba", price: 3000,
+      { id: 104, name: "Matcha Latte", tagline: "Earthy green matcha", category: "tea", price: 5500,
         description: "Ceremonial-grade matcha whisked into creamy milk with a hint of sweetness. Calm in a cup.",
         image: "https://images.unsplash.com/photo-1515823064-d6e0c04616a7?auto=format&fit=crop&q=80&w=800" },
+      { id: 106, name: "Thai Milk Tea", tagline: "Spiced orange cream", category: "tea", price: 5000,
+        description: "Bold Thai tea with condensed milk and a warm spice finish. Sweet, creamy, and unforgettable.",
+        image: "https://images.unsplash.com/photo-1571934811356-5cc061b6821f?auto=format&fit=crop&q=80&w=800" },
+      { id: 107, name: "Honeydew Milk Tea", tagline: "Melon-forward and light", category: "tea", price: 5000,
+        description: "Ripe honeydew melon blended with milk and a mellow finish. Fresh, light, and perfect for warm days.",
+        image: "https://images.unsplash.com/photo-1626200419199-391ae4be7a41?auto=format&fit=crop&q=80&w=800" },
+      { id: 108, name: "Mango Green Tea", tagline: "Tropical and bright", category: "tea", price: 6000,
+        description: "Fresh mango puree layered over chilled green tea. Sunshine in a cup.",
+        image: "https://images.unsplash.com/photo-1571934811356-5cc061b6821f?auto=format&fit=crop&q=80&w=800" },
 
-      /* --- SHAWARMA (6) --- */
-      { id: 201, name: "Chicken Shawarma", tagline: "Grilled chicken wrap", category: "shawarma", price: 3500,
+      /* SHAWARMA (6) */
+      { id: 201, name: "Chicken Shawarma", tagline: "Grilled chicken wrap", category: "shawarma", price: 5000,
         description: "Marinated chicken grilled on a spit, wrapped in warm pita with garlic sauce, pickles, and a hint of chili.",
         image: "https://images.unsplash.com/photo-1529006557810-274b9b2fc783?auto=format&fit=crop&q=80&w=800" },
-      { id: 202, name: "Beef Shawarma", tagline: "Slow-roasted beef wrap", category: "shawarma", price: 4000,
+      { id: 202, name: "Beef Shawarma", tagline: "Slow-roasted beef wrap", category: "shawarma", price: 5500,
         description: "Slow-roasted beef shaved thin, rolled with tahini, tomatoes, and crisp onions in soft flatbread.",
         image: "https://images.unsplash.com/photo-1615870216519-2f9fa575fa5c?auto=format&fit=crop&q=80&w=800" },
-      { id: 203, name: "Mixed Shawarma", tagline: "Chicken + beef combo", category: "shawarma", price: 4500,
+      { id: 203, name: "Mixed Shawarma", tagline: "Chicken + beef combo", category: "shawarma", price: 6000,
         description: "Best of both — chicken and beef shawarma stacked together with house sauce and fresh veggies.",
         image: "https://images.unsplash.com/photo-1561651823-34feb02250e4?auto=format&fit=crop&q=80&w=800" },
-      { id: 204, name: "Lamb Shawarma", tagline: "Tender spiced lamb", category: "shawarma", price: 5000,
+      { id: 204, name: "Lamb Shawarma", tagline: "Tender spiced lamb", category: "shawarma", price: 7500,
         description: "Slow-marinated lamb, roasted until tender, wrapped with pickled onions and tahini drizzle.",
         image: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=800" },
-      { id: 205, name: "Spicy Chicken Shawarma", tagline: "Chicken with chili kick", category: "shawarma", price: 3800,
+      { id: 205, name: "Spicy Chicken Shawarma", tagline: "Chicken with chili kick", category: "shawarma", price: 5500,
         description: "Our classic chicken shawarma with a fiery chili sauce and jalapeño kick for the brave.",
         image: "https://images.unsplash.com/photo-1603360946369-dc9bb6258143?auto=format&fit=crop&q=80&w=800" },
-      { id: 206, name: "Falafel Wrap", tagline: "Crispy chickpea delight", category: "shawarma", price: 3000,
+      { id: 206, name: "Falafel Wrap", tagline: "Crispy chickpea delight", category: "shawarma", price: 5000,
         description: "Golden-fried falafel, hummus, and fresh salad rolled into soft flatbread. Vegan-friendly.",
         image: "https://images.unsplash.com/photo-1547058881-aa0edd92aab3?auto=format&fit=crop&q=80&w=800" },
 
-      /* --- BURGER (5) --- */
+      /* BURGER (5) */
       { id: 301, name: "Classic Beef Burger", tagline: "Juicy flame-grilled beef", category: "burger", price: 5000,
         description: "A juicy beef patty grilled to order, topped with lettuce, tomato, and our signature Bonti sauce in a toasted bun.",
         image: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&q=80&w=800" },
@@ -292,6 +284,7 @@
 
     const CATEGORIES = [
       { key: "boba",     label: "Boba" },
+      { key: "tea",      label: "Tea" },
       { key: "shawarma", label: "Shawarma" },
       { key: "burger",   label: "Burger" },
     ];
@@ -344,7 +337,7 @@
       return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
     }
 
-    /* ---------------- HERO CAROUSEL ---------------- */
+    /* ---------------- HERO CAROUSEL (outlines removed) ---------------- */
     function renderCarousel() {
       const track = document.getElementById("carouselTrack");
       const dots = document.getElementById("carouselDots");
@@ -359,7 +352,7 @@
                  card-shadow card-shadow-hover transition-shadow"
         >
           <div class="flex items-stretch h-full p-2 gap-3">
-            <div class="h-full w-[35%] flex-shrink-0 rounded-lg overflow-hidden ring-1 ring-caramel-800/25 shadow-sm">
+            <div class="h-full w-[35%] flex-shrink-0 rounded-lg overflow-hidden">
               <img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover" />
             </div>
             <div class="flex-1 min-w-0 flex flex-col justify-between py-0.5">
@@ -414,7 +407,11 @@
       const track = document.getElementById("carouselTrack");
       const slides = track.querySelectorAll("[data-slide]");
       if (!slides[i]) return;
-      slides[i].scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+
+      const slide = slides[i];
+      const targetLeft = slide.offsetLeft - (track.clientWidth - slide.offsetWidth) / 2;
+      track.scrollTo({ left: targetLeft, behavior: "smooth" });
+
       carouselIndex = i;
       updateDots();
     }
@@ -446,7 +443,7 @@
     }
     const restartCarouselInterval = startCarouselInterval;
 
-    /* ---------------- HALF-HERO ---------------- */
+    /* ---------------- HALF-HERO (outlines removed) ---------------- */
     function renderDualGrid() {
       const grid = document.getElementById("dualGrid");
       if (!grid) return;
@@ -462,7 +459,7 @@
                  card-shadow card-shadow-hover transition-shadow"
         >
           <div class="flex items-stretch h-full p-1.5 gap-2">
-            <div class="h-full w-[45%] flex-shrink-0 rounded-md overflow-hidden ring-1 ring-caramel-800/25 shadow-sm">
+            <div class="h-full w-[45%] flex-shrink-0 rounded-md overflow-hidden">
               <img src="${left.image}" alt="${left.name}" class="w-full h-full object-cover" />
             </div>
             <div class="flex-1 min-w-0 flex flex-col justify-between py-0.5">
@@ -490,7 +487,7 @@
                  card-shadow card-shadow-hover transition-shadow"
         >
           <div class="flex flex-col h-full p-1.5 gap-1.5">
-            <div class="w-full flex-1 min-h-0 rounded-md overflow-hidden ring-1 ring-caramel-800/25 shadow-sm">
+            <div class="w-full flex-1 min-h-0 rounded-md overflow-hidden">
               <img src="${right.image}" alt="${right.name}" class="w-full h-full object-cover" />
             </div>
             <div class="flex-shrink-0">
