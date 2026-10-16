@@ -13,28 +13,14 @@
         extend: {
           colors: {
             caramel: {
-              50:  '#FBF4EC',
-              100: '#F5E6D0',
-              200: '#EBCDA6',
-              300: '#DEB077',
-              400: '#CE9250',
-              500: '#BE7C3F',
-              600: '#A56630',
-              700: '#845028',
-              800: '#6B4122',
-              900: '#4E2F19',
+              50:  '#FBF4EC', 100: '#F5E6D0', 200: '#EBCDA6', 300: '#DEB077',
+              400: '#CE9250', 500: '#BE7C3F', 600: '#A56630', 700: '#845028',
+              800: '#6B4122', 900: '#4E2F19',
             },
             pearl: {
-              50:  '#F4EDE6',
-              100: '#E5D3C2',
-              200: '#C7A687',
-              300: '#A67C58',
-              400: '#7E573A',
-              500: '#5E3D28',
-              600: '#4A2F1E',
-              700: '#3A2417',
-              800: '#2C1A10',
-              900: '#1E110A',
+              50:  '#F4EDE6', 100: '#E5D3C2', 200: '#C7A687', 300: '#A67C58',
+              400: '#7E573A', 500: '#5E3D28', 600: '#4A2F1E', 700: '#3A2417',
+              800: '#2C1A10', 900: '#1E110A',
             },
           },
         },
@@ -65,7 +51,6 @@
 
     #carouselTrack { scroll-padding-left: 1rem; }
 
-    /* ---------- Unified warm card shadow ---------- */
     .card-shadow {
       box-shadow:
         0 12px 24px -10px rgba(78, 47, 25, 0.38),
@@ -77,90 +62,99 @@
         0 6px 14px -4px rgba(78, 47, 25, 0.28);
     }
 
-    /* Body card lift on hover */
     .pearl-card { transition: transform .25s ease, box-shadow .25s ease; }
-    .pearl-card-hover:hover {
-      transform: translateY(-2px);
-    }
+    .pearl-card-hover:hover { transform: translateY(-2px); }
   </style>
 </head>
 
 <body class="bg-stone-50 min-h-screen text-stone-900">
 
   <!-- ============================================================
-       NAVBAR
+       NAVBAR — full-width bar, capped inner content
   ============================================================ -->
-  <header class="fixed top-0 left-0 right-0 z-40 flex justify-between items-center px-4 py-1 bg-white/80 backdrop-blur border-b border-stone-200">
-    <span class="font-bold text-lg tracking-tight">Bonti</span>
+  <header class="fixed top-0 left-0 right-0 z-40 bg-white/80 backdrop-blur border-b border-stone-200">
+    <div class="max-w-4xl mx-auto w-full flex justify-between items-center px-4 py-1">
+      <span class="font-bold text-lg tracking-tight">Bonti</span>
 
-    <div class="flex items-center gap-2">
-      <button
-        id="bellButton"
-        aria-label="Notifications"
-        class="relative w-8 h-8 rounded-full bg-white border border-stone-200 flex items-center justify-center hover:bg-stone-50 transition"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/>
-          <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/>
-        </svg>
-      </button>
+      <div class="flex items-center gap-2">
+        <button
+          id="bellButton"
+          aria-label="Notifications"
+          class="relative w-8 h-8 rounded-full bg-white border border-stone-200 flex items-center justify-center hover:bg-stone-50 transition"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/>
+            <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/>
+          </svg>
+        </button>
 
-      <button
-        id="cartButton"
-        aria-label="Open cart"
-        class="relative w-8 h-8 rounded-full bg-white border border-stone-200 flex items-center justify-center hover:bg-stone-50 transition"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/>
-          <path d="M3 6h18"/>
-          <path d="M16 10a4 4 0 0 1-8 0"/>
-        </svg>
-        <span id="cartBadge" class="hidden absolute -top-1 -right-1 bg-red-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold">0</span>
-      </button>
+        <button
+          id="cartButton"
+          aria-label="Open cart"
+          class="relative w-8 h-8 rounded-full bg-white border border-stone-200 flex items-center justify-center hover:bg-stone-50 transition"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/>
+            <path d="M3 6h18"/>
+            <path d="M16 10a4 4 0 0 1-8 0"/>
+          </svg>
+          <span id="cartBadge" class="hidden absolute -top-1 -right-1 bg-red-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold">0</span>
+        </button>
+      </div>
     </div>
   </header>
 
 
   <!-- ============================================================
-       HERO
+       MAIN CONTENT
   ============================================================ -->
-  <section class="pt-12">
+  <div class="max-w-4xl mx-auto">
 
-    <div class="px-4 pb-1">
-      <p class="text-[10px] uppercase tracking-[0.3em] text-stone-500 font-bold">Welcome, Snackie.</p>
-    </div>
+    <!-- ============================================================
+         HERO — cards narrower (⅔ of previous widths)
+    ============================================================ -->
+    <section class="pt-12">
 
-    <div
-      id="carouselTrack"
-      class="flex h-[13.5vh] min-h-[112px] max-h-[165px] overflow-x-auto snap-x snap-mandatory scrollbar-hide gap-3 px-4 py-2"
-    >
-      <!-- Slides injected by JS -->
-    </div>
+      <div class="px-4 pb-1">
+        <p class="text-[10px] uppercase tracking-[0.3em] text-stone-500 font-bold">Welcome, Snackie.</p>
+      </div>
 
-    <div id="carouselDots" class="flex justify-center gap-2 mt-1.5"></div>
-  </section>
+      <div
+        id="carouselTrack"
+        class="flex h-[13.5vh] min-h-[112px] max-h-[165px] overflow-x-auto snap-x snap-mandatory scrollbar-hide gap-3 px-4 py-2"
+      >
+        <!-- Slides injected by JS -->
+      </div>
 
-
-  <!-- ============================================================
-       HALF-HERO
-  ============================================================ -->
-  <section class="px-4 mt-3">
-    <div
-      id="dualGrid"
-      class="grid grid-cols-2 gap-3 h-[13.5vh] min-h-[112px] max-h-[165px]"
-    >
-      <!-- Cards injected by JS -->
-    </div>
-  </section>
+      <div id="carouselDots" class="flex justify-center gap-2 mt-1.5"></div>
+    </section>
 
 
-  <!-- ============================================================
-       CATEGORY PILLS + FILTERED GRID
-  ============================================================ -->
-  <section class="px-4 mt-4 pb-16">
-    <div id="categoryPills" class="flex gap-2 mb-2 overflow-x-auto scrollbar-hide"></div>
-    <div id="filteredGrid" class="grid grid-cols-2 gap-x-3 gap-y-4"></div>
-  </section>
+    <!-- ============================================================
+         HALF-HERO — capped + centered
+    ============================================================ -->
+    <section class="px-4 mt-3">
+      <div
+        id="dualGrid"
+        class="grid grid-cols-2 gap-3 h-[13.5vh] min-h-[112px] max-h-[165px] max-w-md mx-auto"
+      >
+        <!-- Cards injected by JS -->
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         CATEGORY PILLS + FILTERED GRID
+    ============================================================ -->
+    <section class="px-4 mt-4 pb-16">
+      <div id="categoryPills" class="flex gap-2 mb-2 overflow-x-auto scrollbar-hide"></div>
+      <div
+        id="filteredGrid"
+        class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-x-3 gap-y-4"
+      ></div>
+    </section>
+
+  </div><!-- /max-w-4xl -->
 
 
   <!-- ============================================================
@@ -222,55 +216,37 @@
        APP SCRIPT
   ============================================================ -->
   <script>
-    /* ---------------- PILL ICONS ---------------- */
     const PILL_ICON = {
       boba: `<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 8h10l-1 13H8L7 8Z"/><path d="M6 8h12"/><path d="M14 4l-2 4"/></svg>`,
       shawarma: `<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10h16v4a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4v-4Z"/><path d="M5 10 7 4h10l2 6"/></svg>`,
       burger: `<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6"/><path d="M4 14h16"/><path d="M4 14v2a4 4 0 0 0 4 4h8a4 4 0 0 0 4-4v-2"/></svg>`,
     };
 
-    /* ---------------- DATA ---------------- */
     const PRODUCTS = [
-      {
-        id: 101, name: "Strawberry Delight", tagline: "Fresh strawberry boba", category: "boba", price: 2500,
+      { id: 101, name: "Strawberry Delight", tagline: "Fresh strawberry boba", category: "boba", price: 2500,
         description: "Fresh strawberry puree blended with creamy milk and chewy tapioca pearls. A fruity, refreshing twist on classic boba.",
-        image: "https://images.unsplash.com/photo-1626200419199-391ae4be7a41?auto=format&fit=crop&q=80&w=800",
-      },
-      {
-        id: 102, name: "Tapioca Plain", tagline: "Classic brown-sugar pearls", category: "boba", price: 2000,
+        image: "https://images.unsplash.com/photo-1626200419199-391ae4be7a41?auto=format&fit=crop&q=80&w=800" },
+      { id: 102, name: "Tapioca Plain", tagline: "Classic brown-sugar pearls", category: "boba", price: 2000,
         description: "The original milk tea with perfectly cooked brown-sugar tapioca pearls. Simple, sweet, and satisfying.",
-        image: "https://images.unsplash.com/photo-1558857563-b371033873b8?auto=format&fit=crop&q=80&w=800",
-      },
-      {
-        id: 201, name: "Chicken Shawarma", tagline: "Grilled chicken wrap", category: "shawarma", price: 3500,
+        image: "https://images.unsplash.com/photo-1558857563-b371033873b8?auto=format&fit=crop&q=80&w=800" },
+      { id: 201, name: "Chicken Shawarma", tagline: "Grilled chicken wrap", category: "shawarma", price: 3500,
         description: "Marinated chicken grilled on a spit, wrapped in warm pita with garlic sauce, pickles, and a hint of chili.",
-        image: "https://images.unsplash.com/photo-1529006557810-274b9b2fc783?auto=format&fit=crop&q=80&w=800",
-      },
-      {
-        id: 202, name: "Beef Shawarma", tagline: "Slow-roasted beef wrap", category: "shawarma", price: 4000,
+        image: "https://images.unsplash.com/photo-1529006557810-274b9b2fc783?auto=format&fit=crop&q=80&w=800" },
+      { id: 202, name: "Beef Shawarma", tagline: "Slow-roasted beef wrap", category: "shawarma", price: 4000,
         description: "Slow-roasted beef shaved thin, rolled with tahini, tomatoes, and crisp onions in soft flatbread.",
-        image: "https://images.unsplash.com/photo-1615870216519-2f9fa575fa5c?auto=format&fit=crop&q=80&w=800",
-      },
-      {
-        id: 203, name: "Mixed Shawarma", tagline: "Chicken + beef combo", category: "shawarma", price: 4500,
+        image: "https://images.unsplash.com/photo-1615870216519-2f9fa575fa5c?auto=format&fit=crop&q=80&w=800" },
+      { id: 203, name: "Mixed Shawarma", tagline: "Chicken + beef combo", category: "shawarma", price: 4500,
         description: "Best of both — chicken and beef shawarma stacked together with house sauce and fresh veggies.",
-        image: "https://images.unsplash.com/photo-1561651823-34feb02250e4?auto=format&fit=crop&q=80&w=800",
-      },
-      {
-        id: 301, name: "Classic Beef Burger", tagline: "Juicy flame-grilled beef", category: "burger", price: 5000,
+        image: "https://images.unsplash.com/photo-1561651823-34feb02250e4?auto=format&fit=crop&q=80&w=800" },
+      { id: 301, name: "Classic Beef Burger", tagline: "Juicy flame-grilled beef", category: "burger", price: 5000,
         description: "A juicy beef patty grilled to order, topped with lettuce, tomato, and our signature Bonti sauce in a toasted bun.",
-        image: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&q=80&w=800",
-      },
-      {
-        id: 302, name: "Chicken Burger", tagline: "Crispy fried chicken", category: "burger", price: 4500,
+        image: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&q=80&w=800" },
+      { id: 302, name: "Chicken Burger", tagline: "Crispy fried chicken", category: "burger", price: 4500,
         description: "Crispy fried chicken fillet, fresh lettuce, and creamy mayo — the crunchy classic done right.",
-        image: "https://images.unsplash.com/photo-1606755962773-d324e0a13086?auto=format&fit=crop&q=80&w=800",
-      },
-      {
-        id: 303, name: "Cheese Burger", tagline: "Double cheese melt", category: "burger", price: 5500,
+        image: "https://images.unsplash.com/photo-1606755962773-d324e0a13086?auto=format&fit=crop&q=80&w=800" },
+      { id: 303, name: "Cheese Burger", tagline: "Double cheese melt", category: "burger", price: 5500,
         description: "Double cheese, double joy. Melting cheddar over a flame-grilled patty with all the trimmings.",
-        image: "https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&q=80&w=800",
-      },
+        image: "https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&q=80&w=800" },
     ];
 
     const HERO_IDS = [101, 102, 201, 301];
@@ -286,14 +262,12 @@
     const WHATSAPP_NUMBER = "2348012345678";
     const CAROUSEL_INTERVAL_MS = 10000;
 
-    /* ---------------- STATE ---------------- */
     let cart = [];
     let selectedProductId = null;
     let selectedCategory = "boba";
     let carouselIndex = 0;
     let carouselInterval = null;
 
-    /* ---------------- HELPERS ---------------- */
     const formatPrice = (p) => "₦" + p.toLocaleString();
     const getProduct = (id) => PRODUCTS.find((p) => p.id === id);
     const getCartItem = (id) => cart.find((i) => i.id === id);
@@ -307,7 +281,6 @@
       minus: (s = 18) => `<svg xmlns="http://www.w3.org/2000/svg" width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/></svg>`,
     };
 
-    /* ---------------- CART ---------------- */
     function updateQuantity(id, delta) {
       const idx = cart.findIndex((i) => i.id === id);
       if (idx === -1 && delta > 0) {
@@ -321,7 +294,6 @@
     }
     const addToCart = (id) => updateQuantity(id, 1);
 
-    /* ---------------- WHATSAPP ---------------- */
     function generateWhatsAppLink() {
       if (cart.length === 0) return `https://wa.me/${WHATSAPP_NUMBER}`;
       let msg = "Hello Bonti, I would like to order:\n\n";
@@ -335,7 +307,12 @@
       return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
     }
 
-    /* ---------------- HERO CAROUSEL ---------------- */
+    /* ============================================================
+       HERO CAROUSEL
+       Card widths reduced by ⅓ (×2/3 of previous):
+         before: 88% / 48% / 32%
+         after : 59% / 32% / 21%
+    ============================================================ */
     function renderCarousel() {
       const track = document.getElementById("carouselTrack");
       const dots = document.getElementById("carouselDots");
@@ -345,7 +322,7 @@
         <div
           data-slide
           data-product-id="${p.id}"
-          class="relative flex-shrink-0 w-[88%] sm:w-[62%] md:w-[52%] h-full snap-center cursor-pointer rounded-2xl overflow-hidden
+          class="relative flex-shrink-0 w-[59%] sm:w-[32%] md:w-[21%] h-full snap-center cursor-pointer rounded-2xl overflow-hidden
                  bg-gradient-to-br from-caramel-300 to-caramel-500
                  card-shadow card-shadow-hover transition-shadow"
         >
@@ -437,7 +414,7 @@
     }
     const restartCarouselInterval = startCarouselInterval;
 
-    /* ---------------- HALF-HERO CARDS ---------------- */
+    /* ---------------- HALF-HERO ---------------- */
     function renderDualGrid() {
       const grid = document.getElementById("dualGrid");
       if (!grid) return;
@@ -539,16 +516,7 @@
       });
     }
 
-    /* ================================================================
-       FILTERED GRID — plain pearl cards
-       ┌──────────────┐
-       │              │
-       │   [IMAGE]    │   ← solid pearl-700, image centered + rounded
-       │              │
-       └──────────────┘
-       Name          ⊕     ← name+price left, add pill right
-       ₦2,500
-    ================================================================ */
+    /* ---------------- BODY GRID ---------------- */
     function renderFilteredGrid() {
       const grid = document.getElementById("filteredGrid");
       if (!grid) return;
@@ -565,14 +533,12 @@
         return `
           <div class="flex flex-col">
 
-            <!-- PLAIN PEARL CARD — image only, clickable to open modal -->
             <div
               data-product-id="${p.id}"
               class="pearl-card pearl-card-hover card-shadow card-shadow-hover
                      relative cursor-pointer aspect-[4/3] rounded-2xl overflow-hidden
                      bg-pearl-700"
             >
-              <!-- Image: centered, rounded corners -->
               <img
                 src="${p.image}"
                 alt="${p.name}"
@@ -587,7 +553,6 @@
               ` : ""}
             </div>
 
-            <!-- INFO ROW — name+price left, add button right -->
             <div class="flex items-center justify-between mt-2 px-0.5 gap-2">
               <div class="min-w-0 flex-1" data-product-id="${p.id}">
                 <h3 class="text-[11px] font-bold text-stone-900 leading-tight break-words">
@@ -722,7 +687,6 @@
       }
     }
 
-    /* ---------------- MASTER RENDER ---------------- */
     function render() {
       renderDualGrid();
       renderPills();
@@ -731,13 +695,11 @@
       renderCart();
     }
 
-    /* ---------------- UI ACTIONS ---------------- */
     function openModal(id) { selectedProductId = id; renderModal(); }
     function closeModal() { selectedProductId = null; renderModal(); }
     function openCart() { document.getElementById("cartDrawer").classList.remove("is-hidden"); }
     function closeCart() { document.getElementById("cartDrawer").classList.add("is-hidden"); }
 
-    /* ---------------- WIRING ---------------- */
     document.addEventListener("DOMContentLoaded", () => {
       renderCarousel();
       render();
